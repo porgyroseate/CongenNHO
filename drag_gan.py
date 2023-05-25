@@ -3,7 +3,6 @@ import os
 import random
 import urllib.request
 
-import torch
 import torch.nn.functional as FF
 import torch.optim
 from torchvision import utils
@@ -14,7 +13,6 @@ from stylegan2.model import Generator
 
 class DownloadProgressBar(tqdm):
     def update_to(self, b=1, bsize=1, tsize=None):
-        if tsize is not None:
             self.total = tsize
         self.update(b * bsize - self.n)
 
@@ -46,7 +44,6 @@ class CustomGenerator(Generator):
         inject_index=None,
         truncation=1,
         truncation_latent=None,
-        input_is_latent=False,
         noise=None,
         randomize_noise=True,
     ):
